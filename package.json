@@ -2,9 +2,17 @@
   "name": "at-rails",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "https://github.com/rails/webpacker"
+    "@babel/preset-react": "^7.0.0",
+    "@rails/webpacker": "https://github.com/rails/webpacker",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
+    "prop-types": "^15.6.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "typescript": "^3.2.2",
+    "webpack": "4.0.0",
     "webpack-dev-server": "^3.1.11"
   }
 }

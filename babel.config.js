@@ -10,7 +10,7 @@ module.exports = function(api) {
       'Please specify a valid `NODE_ENV` or ' +
         '`BABEL_ENV` environment variables. Valid values are "development", ' +
         '"test", and "production". Instead, received: ' +
-        JSON.stringify(currentEnv) +
+        JSON.stringify(env) +
         '.'
     )
   }
@@ -32,6 +32,13 @@ module.exports = function(api) {
           useBuiltIns: 'entry',
           modules: false,
           exclude: ['transform-typeof-symbol']
+        }
+      ],
+      [
+        require('@babel/preset-react').default,
+        {
+          development: isDevelopmentEnv || isTestEnv,
+          useBuiltIns: true
         }
       ]
     ].filter(Boolean),
@@ -63,6 +70,12 @@ module.exports = function(api) {
         require('@babel/plugin-transform-regenerator').default,
         {
           async: false
+        }
+      ],
+      isProductionEnv && [
+        require('babel-plugin-transform-react-remove-prop-types').default,
+        {
+          removeImport: true
         }
       ]
     ].filter(Boolean)
