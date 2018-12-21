@@ -1,18 +1,18 @@
-module.exports = function(api) {
-  var validEnv = ['development', 'test', 'production'];
-  var currentEnv = api.env();
-  var isDevelopmentEnv = api.env('development');
-  var isProductionEnv = api.env('production');
-  var isTestEnv = api.env('test');
+module.exports = function (api) {
+  let validEnv = ['development', 'test', 'production'];
+  let currentEnv = api.env();
+  let isDevelopmentEnv = api.env('development');
+  let isProductionEnv = api.env('production');
+  let isTestEnv = api.env('test');
 
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
-      'Please specify a valid `NODE_ENV` or ' +
-        '`BABEL_ENV` environment variables. Valid values are "development", ' +
-        '"test", and "production". Instead, received: ' +
-        JSON.stringify(env) +
-        '.'
-    )
+      `${'Please specify a valid `NODE_ENV` or ' +
+      '`BABEL_ENV` environment variables. Valid values are "development", ' +
+      '"test", and "production". Instead, received: '}${ 
+      JSON.stringify(env) 
+      }.`,
+    );
   }
 
   return {
@@ -21,9 +21,9 @@ module.exports = function(api) {
         require('@babel/preset-env').default,
         {
           targets: {
-            node: 'current'
-          }
-        }
+            node: 'current',
+          },
+        },
       ],
       (isProductionEnv || isDevelopmentEnv) && [
         require('@babel/preset-env').default,
@@ -31,16 +31,19 @@ module.exports = function(api) {
           forceAllTransforms: true,
           useBuiltIns: 'entry',
           modules: false,
-          exclude: ['transform-typeof-symbol']
-        }
+          exclude: ['transform-typeof-symbol'],
+        },
+      ],
+      [
+        require('@babel/preset-flow').default,
       ],
       [
         require('@babel/preset-react').default,
         {
           development: isDevelopmentEnv || isTestEnv,
-          useBuiltIns: true
-        }
-      ]
+          useBuiltIns: true,
+        },
+      ],
     ].filter(Boolean),
     plugins: [
       require('babel-plugin-macros'),
@@ -50,40 +53,40 @@ module.exports = function(api) {
       [
         require('@babel/plugin-proposal-decorators').default,
         {
-          legacy: true
-        }
+          legacy: true,
+        },
       ],
       [
         require('@babel/plugin-proposal-class-properties').default,
         {
-          loose: true
-        }
+          loose: true,
+        },
       ],
       [
         require('@babel/plugin-proposal-object-rest-spread').default,
         {
-          useBuiltIns: true
-        }
+          useBuiltIns: true,
+        },
       ],
       [
         require('@babel/plugin-transform-runtime').default,
         {
           helpers: false,
-          regenerator: true
-        }
+          regenerator: true,
+        },
       ],
       [
         require('@babel/plugin-transform-regenerator').default,
         {
-          async: false
-        }
+          async: false,
+        },
       ],
       isProductionEnv && [
         require('babel-plugin-transform-react-remove-prop-types').default,
         {
-          removeImport: true
-        }
-      ]
-    ].filter(Boolean)
+          removeImport: true,
+        },
+      ],
+    ].filter(Boolean),
   };
 };
