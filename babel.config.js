@@ -1,9 +1,9 @@
 module.exports = function(api) {
-  var validEnv = ['development', 'test', 'production']
-  var currentEnv = api.env()
-  var isDevelopmentEnv = api.env('development')
-  var isProductionEnv = api.env('production')
-  var isTestEnv = api.env('test')
+  var validEnv = ['development', 'test', 'production'];
+  var currentEnv = api.env();
+  var isDevelopmentEnv = api.env('development');
+  var isProductionEnv = api.env('production');
+  var isTestEnv = api.env('test');
 
   if (!validEnv.includes(currentEnv)) {
     throw new Error(
@@ -48,6 +48,12 @@ module.exports = function(api) {
       isTestEnv && require('babel-plugin-dynamic-import-node'),
       require('@babel/plugin-transform-destructuring').default,
       [
+        require('@babel/plugin-proposal-decorators').default,
+        {
+          legacy: true
+        }
+      ],
+      [
         require('@babel/plugin-proposal-class-properties').default,
         {
           loose: true
@@ -79,5 +85,5 @@ module.exports = function(api) {
         }
       ]
     ].filter(Boolean)
-  }
-}
+  };
+};

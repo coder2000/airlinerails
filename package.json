@@ -3,19 +3,22 @@
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.0.0",
+    "@nozbe/watermelondb": "^0.9.0",
     "@rails/webpacker": "https://github.com/rails/webpacker",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
+    "lokijs": "^1.5.5",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-decorators": "^7.2.3",
     "eslint": "^5.10.0",
     "eslint-plugin-react": "^7.11.1",
-    "typescript": "^3.2.2",
     "webpack": "^4.0.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.11"
+    "webpack-dev-server": "^3.1.11",
+    "worker-loader": "^2.0.0"
   }
 }
