@@ -1,10 +1,10 @@
 [ignore]
-.*/node_modules
 
 [include]
 ./app/javascript
 
 [libs]
+flow-typed
 
 [lints]
 
