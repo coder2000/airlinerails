@@ -15,6 +15,7 @@ script:
   - bundle exec rspec spec
   - bundle exec cucumber
   - yarn jest
+  - yarn coveralls
 services:
   - postgresql
 notifications:
