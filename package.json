@@ -18,6 +18,9 @@
     "babel-plugin-macros": "^2.4.3",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.21",
     "lokijs": "^1.5.5",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.5.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -52,6 +55,13 @@
       "node_modules",
       "app/javascript"
     ],
-    "setupTestFrameworkScriptFile": "./spec/javascript/setupTests.js"
+    "setupTestFrameworkScriptFile": "./spec/javascript/setupTests.js",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageDirectory": "./coverage"
   }
 }
