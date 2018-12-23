@@ -9,7 +9,7 @@ import LokiJSAdapter from '@nozbe/watermelondb/adapters/lokijs';
 import schema from './models/schema';
 import Airline from './models/Airline';
 
-import App from './components/App';
+import { App } from './modules/app';
 
 const adapter = new LokiJSAdapter({ schema });
 
