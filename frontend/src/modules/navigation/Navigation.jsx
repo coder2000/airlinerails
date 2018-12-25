@@ -26,22 +26,22 @@ export default class Navigation extends React.Component<Props, State> {
     isActive: false,
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.setActive = this.setActive.bind(this);
   }
 
-  setActive() {
+  setActive = () => {
     this.setState(previous => ({
       isActive: !previous.isActive,
     }));
-  }
+  };
 
   render() {
     const { isActive } = this.state;
 
     return (
-      <Navbar className="is-info">
+      <Navbar className="is-info is-fixed-top">
         <NavbarBrand>
           <NavbarItem>The Airline</NavbarItem>
           <NavbarBurger isActive={isActive} onClick={this.setActive} />

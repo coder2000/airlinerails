@@ -3,16 +3,12 @@
 
 import * as React from 'react';
 import {
-  Hero, HeroHeader, HeroBody, HeroFooter, Container, Title, Button,
+  Hero, HeroBody, HeroFooter, Container, Title, Button,
 } from 'bloomer';
-import Navigation from '../navigation';
 
 export default function Home() {
   return (
-    <Hero isSize="medium" isFullHeight>
-      <HeroHeader>
-        <Navigation />
-      </HeroHeader>
+    <Hero className="is-fullheight-with-navbar">
       <HeroBody>
         <Container hasTextAlign="centered">
           <Title>The Airline</Title>

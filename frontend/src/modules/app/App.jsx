@@ -4,6 +4,7 @@ import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PouchDB } from 'react-pouchdb/browser';
 import Home from './Home';
+import Layout from './Layout';
 import NewGame from '../game';
 import loadIcons from '../icons';
 
@@ -12,12 +13,14 @@ export default function App() {
 
   return (
     <PouchDB name="airline">
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/start" component={NewGame} />
-        </Switch>
-      </Router>
+      <Layout>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/start" component={NewGame} />
+          </Switch>
+        </Router>
+      </Layout>
     </PouchDB>
   );
 }
