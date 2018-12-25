@@ -1,5 +1,5 @@
 // @flow
-/* eslint react/jsx-one-expression-per-line: off */
+/* eslint-disable react/jsx-one-expression-per-line */
 
 import * as React from 'react';
 import {
@@ -9,7 +9,7 @@ import Navigation from '../navigation';
 
 export default function Home() {
   return (
-    <Hero isSize="medium" isColor="dark" isFullHeight>
+    <Hero isSize="medium" isFullHeight>
       <HeroHeader>
         <Navigation />
       </HeroHeader>

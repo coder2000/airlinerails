@@ -1,9 +1,17 @@
 // @flow
-/* eslint react/jsx-one-expression-per-line: off */
+/* eslint-disable react/jsx-one-expression-per-line */
 
 import * as React from 'react';
 import {
-  Navbar, NavbarBrand, NavbarBurger, NavbarMenu, NavbarItem, NavbarEnd,
+  Navbar,
+  NavbarBrand,
+  NavbarBurger,
+  NavbarMenu,
+  NavbarItem,
+  NavbarLink,
+  NavbarEnd,
+  NavbarDropdown,
+  NavbarDivider,
 } from 'bloomer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -18,6 +26,11 @@ export default class Navigation extends React.Component<Props, State> {
     isActive: false,
   };
 
+  constructor(props) {
+    super(props);
+    this.setActive = this.setActive.bind(this);
+  }
+
   setActive() {
     this.setState(previous => ({
       isActive: !previous.isActive,
@@ -28,20 +41,27 @@ export default class Navigation extends React.Component<Props, State> {
     const { isActive } = this.state;
 
     return (
-      <Navbar>
+      <Navbar className="is-info">
         <NavbarBrand>
-          <NavbarBurger isActive={isActive} onClick={this.setActive} />
           <NavbarItem>The Airline</NavbarItem>
+          <NavbarBurger isActive={isActive} onClick={this.setActive} />
         </NavbarBrand>
         <NavbarMenu isActive={isActive}>
           <NavbarItem href="/">Home</NavbarItem>
-          <NavbarItem>About</NavbarItem>
+          <NavbarItem href="/about">About</NavbarItem>
+          <NavbarEnd>
+            <NavbarItem hasDropdown isHoverable>
+              <NavbarLink>
+                <FontAwesomeIcon icon="cog" />
+              </NavbarLink>
+              <NavbarDropdown className="is-right" isBoxed>
+                <NavbarItem href="/login">Login</NavbarItem>
+                <NavbarDivider />
+                <NavbarItem href="/settings">Settings</NavbarItem>
+              </NavbarDropdown>
+            </NavbarItem>
+          </NavbarEnd>
         </NavbarMenu>
-        <NavbarEnd>
-          <NavbarItem>
-            <FontAwesomeIcon icon="cog" />
-          </NavbarItem>
-        </NavbarEnd>
       </Navbar>
     );
   }
