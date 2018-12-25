@@ -1,7 +1,8 @@
 // @flow
 
-import * as React from 'react';
+import * as React from "react";
+import Navigation from "../navigation";
 
 export default function NewGame() {
-  return <div>New Game</div>;
+  return <Navigation />;
 }

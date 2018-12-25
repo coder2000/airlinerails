@@ -1,25 +1,31 @@
 // @flow
 /* eslint react/jsx-one-expression-per-line: off */
 
-import * as React from 'react';
+import * as React from "react";
 import {
-  Navbar, NavbarBrand, NavbarBurger, NavbarMenu, NavbarItem,
-} from 'bloomer';
+  Navbar,
+  NavbarBrand,
+  NavbarBurger,
+  NavbarMenu,
+  NavbarItem,
+  NavbarEnd
+} from "bloomer";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 type Props = {};
 
 type State = {
-  isActive: boolean,
+  isActive: boolean
 };
 
 export default class Navigation extends React.Component<Props, State> {
   state = {
-    isActive: false,
+    isActive: false
   };
 
   setActive() {
     this.setState(previous => ({
-      isActive: !previous.isActive,
+      isActive: !previous.isActive
     }));
   }
 
@@ -33,9 +39,14 @@ export default class Navigation extends React.Component<Props, State> {
           <NavbarItem>The Airline</NavbarItem>
         </NavbarBrand>
         <NavbarMenu isActive={isActive}>
-          <NavbarItem>Home</NavbarItem>
+          <NavbarItem href="/">Home</NavbarItem>
           <NavbarItem>About</NavbarItem>
         </NavbarMenu>
+        <NavbarEnd>
+          <NavbarItem>
+            <FontAwesomeIcon icon="cog" />
+          </NavbarItem>
+        </NavbarEnd>
       </Navbar>
     );
   }
