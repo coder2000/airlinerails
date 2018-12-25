@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PouchDB } from 'react-pouchdb/browser';
 import Home from './Home';
 import { NewGame } from '../game';
-import { loadIcons } from '../icons';
+import loadIcons from '../icons';
 
 export default function App() {
   loadIcons();

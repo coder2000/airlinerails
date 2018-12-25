@@ -1,0 +1,8 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "plugin:jest/recommended", "react-app"],
+  "plugins": ["react", "jest", "flowtype", "jsx-a11y", "import"],
+  "rules": {
+    "linebreak-style": [2, "unix"]
+  }
+}
