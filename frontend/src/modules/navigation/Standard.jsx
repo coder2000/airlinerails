@@ -21,7 +21,7 @@ type State = {
   isActive: boolean,
 };
 
-export default class Navigation extends React.Component<Props, State> {
+export default class Standard extends React.Component<Props, State> {
   state = {
     isActive: false,
   };

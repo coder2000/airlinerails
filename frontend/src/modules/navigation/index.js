@@ -1,3 +1,4 @@
 // @flow
 
-export { default } from './Navigation';
+export { default as Standard } from './Standard';
+export { default as InGame } from './InGame';
