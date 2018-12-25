@@ -7,20 +7,40 @@ import Home from './Home';
 import Layout from './Layout';
 import NewGame from '../game';
 import loadIcons from '../icons';
+import GameContext from '../contexts';
 
-export default function App() {
-  loadIcons();
+type Props = {};
 
-  return (
-    <PouchDB name="airline">
-      <Layout>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/start" component={NewGame} />
-          </Switch>
-        </Router>
-      </Layout>
-    </PouchDB>
-  );
+type State = {
+  inGame: boolean,
+};
+
+export default class App extends React.Component<Props, State> {
+  state = {
+    inGame: false,
+  };
+
+  constructor(props: Props) {
+    super(props);
+    loadIcons();
+  }
+
+  render() {
+    const { inGame } = this.state;
+
+    return (
+      <PouchDB name="airline">
+        <GameContext.Provider value={inGame}>
+          <Layout>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/start" component={NewGame} />
+              </Switch>
+            </Router>
+          </Layout>
+        </GameContext.Provider>
+      </PouchDB>
+    );
+  }
 }
