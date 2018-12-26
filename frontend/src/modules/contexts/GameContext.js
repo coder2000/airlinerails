@@ -4,7 +4,7 @@ import * as React from 'react';
 
 type Game = {
   inGame: boolean,
-  toggleGame: () => mixed,
+  toggleGame: (value: boolean) => mixed,
 };
 
 const GameContext = React.createContext<Game>({});

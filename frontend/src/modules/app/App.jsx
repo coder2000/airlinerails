@@ -27,10 +27,10 @@ export default class App extends React.Component<Props, State> {
     this.toggleGame = this.toggleGame.bind(this);
   }
 
-  toggleGame = () => {
-    this.setState(previous => ({
-      inGame: !previous.inGame,
-    }));
+  toggleGame = (value: boolean) => {
+    this.setState({
+      inGame: value,
+    });
   };
 
   render() {

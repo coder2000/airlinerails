@@ -17,7 +17,7 @@ export default function Home() {
       <HeroFooter style={{ marginBottom: '10vh' }}>
         <Container hasTextAlign="centered">
           <Button isColor="info" isSize="large" href="/start">
-            Get Started
+            New Game
           </Button>
         </Container>
       </HeroFooter>

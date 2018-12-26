@@ -28,7 +28,7 @@ export default class InGame extends React.Component<Props, State> {
     return (
       <Navbar className="is-success is-fixed-top">
         <NavbarBrand>
-          <NavbarItem>The Airline</NavbarItem>
+          <NavbarItem href="/">The Airline</NavbarItem>
           <NavbarBurger isActive={isActive} onClick={this.setActive} />
         </NavbarBrand>
       </Navbar>

@@ -11,7 +11,7 @@ export default class NewGame extends React.Component<Props> {
   componentDidMount() {
     const { toggleGame } = this.context;
 
-    toggleGame();
+    toggleGame(true);
   }
 
   render() {
