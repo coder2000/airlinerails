@@ -8,7 +8,7 @@ type Props = {};
 export default class NewGame extends React.Component<Props> {
   static contextType = GameContext;
 
-  componentDidMount() {
+  componentWillMount() {
     const { toggleGame } = this.context;
 
     toggleGame(true);
