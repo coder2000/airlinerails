@@ -13,13 +13,11 @@ type Props = {};
 
 type State = {
   inGame: boolean,
-  toggleGame: () => mixed,
 };
 
 export default class App extends React.Component<Props, State> {
   state = {
     inGame: false,
-    toggleGame: this.toggleGame,
   };
 
   constructor(props: Props) {
@@ -36,7 +34,8 @@ export default class App extends React.Component<Props, State> {
   };
 
   render() {
-    const { inGame, toggleGame } = this.state;
+    const { inGame } = this.state;
+    const { toggleGame } = this;
 
     return (
       <PouchDB name="airline">

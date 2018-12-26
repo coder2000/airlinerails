@@ -9,7 +9,7 @@ export default class NewGame extends React.Component<Props> {
   static contextType = GameContext;
 
   componentDidMount() {
-    const { inGame, toggleGame } = this.context;
+    const { toggleGame } = this.context;
 
     toggleGame();
   }
