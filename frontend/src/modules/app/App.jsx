@@ -13,7 +13,7 @@ type Props = {};
 
 type State = {
   inGame: boolean,
-  toggleGame: () => {},
+  toggleGame: () => mixed,
 };
 
 export default class App extends React.Component<Props, State> {
