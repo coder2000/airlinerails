@@ -13,24 +13,34 @@ type Props = {};
 
 type State = {
   inGame: boolean,
+  toggleGame: () => {},
 };
 
 export default class App extends React.Component<Props, State> {
   state = {
     inGame: false,
+    toggleGame: this.toggleGame,
   };
 
   constructor(props: Props) {
     super(props);
     loadIcons();
+
+    this.toggleGame = this.toggleGame.bind(this);
   }
 
+  toggleGame = () => {
+    this.setState(previous => ({
+      inGame: !previous.inGame,
+    }));
+  };
+
   render() {
-    const { inGame } = this.state;
+    const { inGame, toggleGame } = this.state;
 
     return (
       <PouchDB name="airline">
-        <GameContext.Provider value={inGame}>
+        <GameContext.Provider value={{ inGame, toggleGame }}>
           <Layout>
             <Router>
               <Switch>

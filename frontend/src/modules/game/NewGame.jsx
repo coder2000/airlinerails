@@ -1,8 +1,20 @@
 // @flow
 
 import * as React from 'react';
-import { Standard } from '../navigation';
+import GameContext from '../contexts';
 
-export default function NewGame() {
-  return <Standard />;
+type Props = {};
+
+export default class NewGame extends React.Component<Props> {
+  static contextType = GameContext;
+
+  componentDidMount() {
+    const { inGame, toggleGame } = this.context;
+
+    toggleGame();
+  }
+
+  render() {
+    return <div>New Game</div>;
+  }
 }

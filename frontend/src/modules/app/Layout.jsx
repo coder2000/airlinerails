@@ -13,7 +13,7 @@ export default function Layout(props: Props) {
 
   return (
     <div>
-      <GameContext.Consumer>{inGame => (inGame ? <InGame /> : <Standard />)}</GameContext.Consumer>
+      <GameContext.Consumer>{inGame => (inGame ? <Standard /> : <InGame />)}</GameContext.Consumer>
       {children}
     </div>
   );

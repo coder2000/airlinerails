@@ -2,6 +2,11 @@
 
 import * as React from 'react';
 
-const GameContext = React.createContext<boolean>(false);
+type Game = {
+  inGame: boolean,
+  toggleGame: () => {},
+};
+
+const GameContext = React.createContext<Game>({});
 
 export default GameContext;
