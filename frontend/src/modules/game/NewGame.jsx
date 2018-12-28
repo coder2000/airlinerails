@@ -5,19 +5,35 @@ import {
   Container, Column, Columns, Box, Field, Label, Control, Input, Title,
 } from 'bloomer';
 import GameContext from '../contexts';
+import CountrySelect from './CountrySelect';
 
 type Props = {};
 
-export default class NewGame extends React.Component<Props> {
+type State = {
+  countryCode: string,
+};
+
+export default class NewGame extends React.Component<Props, State> {
   static contextType = GameContext;
+
+  state = {
+    countryCode: '',
+  };
 
   componentWillMount() {
     const { toggleGame } = this.context;
 
+    this.countrySelected = this.countrySelected.bind(this);
     toggleGame(true);
   }
 
+  countrySelected = (event: SyntheticInputEvent<HTMLInputElement>) => {
+    this.setState({ countryCode: event.currentTarget.value });
+  };
+
   render() {
+    const { countryCode } = this.state;
+
     return (
       <Container style={{ marginTop: '10vh' }}>
         <Columns isCentered>
@@ -37,6 +53,10 @@ export default class NewGame extends React.Component<Props> {
                 <Input type="text" />
               </Control>
             </Field>
+            <CountrySelect onCountrySelected={this.countrySelected} />
+            Selected Country:
+            {' '}
+            {countryCode}
           </Column>
           <Column isSize="1/3">
             <Title isSize={4}>Owner</Title>
