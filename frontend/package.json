@@ -37,7 +37,7 @@
     "file-loader": "2.0.0",
     "fork-ts-checker-webpack-plugin-alt": "0.4.14",
     "fs-extra": "7.0.0",
-    "graphql": "^14.0.2",
+    "graphql": "git://github.com/graphql/graphql-js.git#npm",
     "graphql-tag": "^2.10.0",
     "html-webpack-plugin": "4.0.0-alpha.2",
     "identity-obj-proxy": "3.0.0",
