@@ -12,7 +12,7 @@ module Types
     end
 
     def countries
-      ISO3166::Country.all
+      ISO3166::Country.all.sort
     end
   end
 end
