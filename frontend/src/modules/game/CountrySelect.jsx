@@ -16,7 +16,13 @@ const GET_COUNTRIES = gql`
   }
 `;
 
-export default function CountrySelect(onCountrySelected: Function) {
+type SelectedFunc = (SyntheticInputEvent<HTMLInputElement>) => void;
+
+type Props = {
+  onCountrySelected: SelectedFunc,
+};
+
+export default function CountrySelect(props: Props) {
   return (
     <Query asyncMode query={GET_COUNTRIES}>
       {({ loading, error, data }) => {
@@ -27,7 +33,7 @@ export default function CountrySelect(onCountrySelected: Function) {
           <Field>
             <Label>Country</Label>
             <Control>
-              <Select onChange={onCountrySelected}>
+              <Select onChange={props.onCountrySelected}>
                 {data.countries.map(country => (
                   <option key={country.code} value={country.code}>
                     {country.name}
