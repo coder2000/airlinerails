@@ -1136,32 +1136,20 @@ babel-plugin-macros@^2.0.0:
     cosmiconfig "^5.0.5"
     resolve "^1.8.1"
 
-babel-plugin-relay@^1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-1.7.0.tgz#d1665aad931e2f44c1e652819414edd2b1aafb3c"
-  integrity sha512-4kDgElsQ3+m1YHGinm2CWu55XzpPqEzf42JuYWUAJWvTBcHkd/VGVftO9C6BjnssUU7fDH9izn3qMtp0XFWGKw==
+babel-plugin-relay@^2.0.0-rc.1:
+  version "2.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-relay/-/babel-plugin-relay-2.0.0-rc.1.tgz#43f50117be52960ad08bbcf51a1ee31cdeec83ad"
+  integrity sha512-NPrDvY7sjeTmxdMClCED/A5o7ovFpuY4NrKJpFsQxzABMbakrB0utJflfzn7T1ZY3TjdV7lQRjEvAKgoyw8xnQ==
   dependencies:
     babel-plugin-macros "^2.0.0"
-    babel-runtime "^6.23.0"
-    babel-types "^6.24.1"
 
-babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.23.0:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   integrity sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.11.0"
-
-babel-types@^6.24.1:
-  version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-types/-/babel-types-6.26.0.tgz#a3b073f94ab49eb6fa55cd65227a334380632497"
-  integrity sha1-o7Bz+Uq0nrb6Vc1lInozQ4BjJJc=
-  dependencies:
-    babel-runtime "^6.26.0"
-    esutils "^2.0.2"
-    lodash "^4.17.4"
-    to-fast-properties "^1.0.3"
 
 balanced-match@^1.0.0:
   version "1.0.0"
@@ -6307,11 +6295,6 @@ to-buffer@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/to-buffer/-/to-buffer-1.1.1.tgz#493bd48f62d7c43fcded313a03dcadb2e1213a80"
   integrity sha512-lx9B5iv7msuFYE3dytT+KE5tap+rNYw+K4jVkb9R/asAb+pbBSM17jtunHplhBe6RRJdZx3Pn2Jph24O32mOVg==
-
-to-fast-properties@^1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.3.tgz#b83571fa4d8c25b82e231b06e3a3055de4ca1a47"
-  integrity sha1-uDVx+k2MJbguIxsG46MFXeTKGkc=
 
 to-fast-properties@^2.0.0:
   version "2.0.0"
