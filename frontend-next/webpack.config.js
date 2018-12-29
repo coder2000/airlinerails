@@ -10,12 +10,13 @@ const plugins = [
 
 module.exports = options => ({
   mode: options.mode,
-  entry: [path.join(process.cwd(), 'src/index.jsx')],
+  entry: path.join(process.cwd(), 'src/index.jsx'),
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
+        include: path.resolve(process.cwd(), 'src'),
         use: {
           loader: 'babel-loader',
         },
@@ -25,6 +26,9 @@ module.exports = options => ({
         use: ['style-loader', 'css-loader'],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
   devServer: options.devServer,
   plugins: options.plugins.concat(plugins),

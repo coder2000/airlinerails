@@ -7,7 +7,9 @@
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
     "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
@@ -25,6 +27,7 @@
     "graphql": "^14.0.2",
     "html-webpack-plugin": "^3.2.0",
     "prettier": "^1.15.3",
+    "relay-compiler": "^2.0.0-rc.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
@@ -32,7 +35,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.dev.js",
-    "build": "webpack --mode production"
+    "build": "webpack --config ./webpack.prod.js",
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions js jsx"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",

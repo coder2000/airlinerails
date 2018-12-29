@@ -6,7 +6,7 @@ import { graphql, QueryRenderer } from 'react-relay';
 import { environment } from '../app';
 
 const GET_COUNTRIES = graphql`
-  {
+  query CountrySelectQuery {
     countries {
       code
       name
