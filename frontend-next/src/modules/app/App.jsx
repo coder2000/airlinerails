@@ -3,8 +3,6 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { PouchDB } from 'react-pouchdb/browser';
-import ApolloClient from 'apollo-boost';
-import { ApolloProvider } from 'react-apollo';
 import Home from './Home';
 import Layout from './Layout';
 import NewGame from '../game';
@@ -16,10 +14,6 @@ type Props = {};
 type State = {
   inGame: boolean,
 };
-
-const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
-});
 
 export default class App extends React.Component<Props, State> {
   state = {
@@ -45,18 +39,16 @@ export default class App extends React.Component<Props, State> {
 
     return (
       <PouchDB name="airline">
-        <ApolloProvider client={client}>
-          <GameContext.Provider value={{ inGame, toggleGame }}>
-            <Layout>
-              <Router>
-                <Switch>
-                  <Route exact path="/" component={Home} />
-                  <Route path="/start" component={NewGame} />
-                </Switch>
-              </Router>
-            </Layout>
-          </GameContext.Provider>
-        </ApolloProvider>
+        <GameContext.Provider value={{ inGame, toggleGame }}>
+          <Layout>
+            <Router>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/start" component={NewGame} />
+              </Switch>
+            </Router>
+          </Layout>
+        </GameContext.Provider>
       </PouchDB>
     );
   }

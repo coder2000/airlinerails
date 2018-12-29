@@ -1,11 +1,11 @@
 // @flow
 
 import * as React from 'react';
-import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import { Select, Field, Control, Label } from 'bloomer';
+import { graphql, QueryRenderer } from 'react-relay';
+import { environment } from '../app';
 
-const GET_COUNTRIES = gql`
+const GET_COUNTRIES = graphql`
   {
     countries {
       code
@@ -38,7 +38,7 @@ export default class CountrySelect extends React.Component<Props, State> {
     const { code } = this.state;
 
     return (
-      <Query asyncMode query={GET_COUNTRIES}>
+      <QueryRenderer query={GET_COUNTRIES} environment={environment}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error.message}`;
@@ -58,7 +58,7 @@ export default class CountrySelect extends React.Component<Props, State> {
             </Field>
           );
         }}
-      </Query>
+      </QueryRenderer>
     );
   }
 }
