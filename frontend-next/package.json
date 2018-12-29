@@ -1,0 +1,51 @@
+{
+  "name": "airline-frontend",
+  "version": "1.0.0",
+  "description": "React frontend for The Airline",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-relay": "^1.7.0",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.0",
+    "flow-bin": "^0.89.0",
+    "graphql": "^14.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "prettier": "^1.15.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode production"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.12",
+    "@fortawesome/free-solid-svg-icons": "^5.6.3",
+    "@fortawesome/react-fontawesome": "^0.1.3",
+    "bloomer": "^0.6.5",
+    "bulma": "^0.7.2",
+    "pouchdb": "^7.0.0",
+    "pouchdb-browser": "^7.0.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-pouchdb": "^0.3.2",
+    "react-relay": "^1.7.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1"
+  }
+}
