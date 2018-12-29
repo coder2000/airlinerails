@@ -1,3 +1,6 @@
+/* eslint-disable global-require */
+/* eslint-disable no-nested-ternary */
+
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -353,6 +356,7 @@ module.exports = function webpackConfig(webpackEnv) {
                 presets: [
                   [require.resolve('babel-preset-react-app/dependencies'), { helpers: true }],
                 ],
+                plugins: [[require.resolve('babel-plugin-relay')]],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
 
