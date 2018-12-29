@@ -38,8 +38,10 @@ export default class CountrySelect extends React.Component<Props, State> {
     const { code } = this.state;
 
     return (
-      <QueryRenderer query={GET_COUNTRIES} environment={environment}>
-        {({ loading, error, data }) => {
+      <QueryRenderer
+        query={GET_COUNTRIES}
+        environment={environment}
+        render={({ loading, error, data }) => {
           if (loading) return 'Loading...';
           if (error) return `Error! ${error.message}`;
 
@@ -58,7 +60,7 @@ export default class CountrySelect extends React.Component<Props, State> {
             </Field>
           );
         }}
-      </QueryRenderer>
+      />
     );
   }
 }
