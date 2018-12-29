@@ -41,8 +41,8 @@ export default class CountrySelect extends React.Component<Props, State> {
       <QueryRenderer
         query={GET_COUNTRIES}
         environment={environment}
-        render={({ loading, error, data }) => {
-          if (loading) return 'Loading...';
+        render={({ error, data }) => {
+          if (!data) return 'Loading...';
           if (error) return `Error! ${error.message}`;
 
           return (
