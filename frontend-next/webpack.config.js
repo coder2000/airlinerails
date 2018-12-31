@@ -28,7 +28,7 @@ module.exports = options => ({
     ],
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.mjs', '.js', '.jsx'],
   },
   devServer: options.devServer,
   plugins: options.plugins.concat(plugins),

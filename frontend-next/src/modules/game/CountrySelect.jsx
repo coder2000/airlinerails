@@ -3,7 +3,8 @@
 import * as React from 'react';
 import { Select, Field, Control, Label } from 'bloomer';
 import { Query } from 'react-apollo';
-import { gql } from 'graphql-tag';
+import gql from 'graphql-tag';
+import { Loading } from '../app';
 
 const GET_COUNTRIES = gql`
   query CountrySelectQuery {
@@ -40,7 +41,7 @@ export default class CountrySelect extends React.Component<Props, State> {
     return (
       <Query query={GET_COUNTRIES}>
         {({ loading, error, data }) => {
-          if (loading) return 'Loading...';
+          if (loading) return <Loading />;
           if (error) return `Error! ${error.message}`;
 
           return (
@@ -48,8 +49,11 @@ export default class CountrySelect extends React.Component<Props, State> {
               <Label>Country</Label>
               <Control>
                 <Select onChange={this.onChange} selected={code}>
+                  <option />
                   {data.countries.map(country => (
-                    <option value={country.code}>{country.name}</option>
+                    <option key={country.code} value={country.code}>
+                      {country.name}
+                    </option>
                   ))}
                 </Select>
               </Control>
