@@ -1,9 +1,0 @@
-type Country {
-  id: ID!
-  name: String
-  code: String
-}
-
-type Query {
-  countries: [Country]
-}

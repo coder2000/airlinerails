@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import { Select, Field, Control, Label } from 'bloomer';
-import { graphql, QueryRenderer } from 'react-relay';
-import { environment } from '../app';
+import { Query } from 'react-apollo';
+import { gql } from 'graphql-tag';
 
-const GET_COUNTRIES = graphql`
+const GET_COUNTRIES = gql`
   query CountrySelectQuery {
     countries {
       code
@@ -38,11 +38,9 @@ export default class CountrySelect extends React.Component<Props, State> {
     const { code } = this.state;
 
     return (
-      <QueryRenderer
-        query={GET_COUNTRIES}
-        environment={environment}
-        render={({ error, data }) => {
-          if (!data) return 'Loading...';
+      <Query query={GET_COUNTRIES}>
+        {({ loading, error, data }) => {
+          if (loading) return 'Loading...';
           if (error) return `Error! ${error.message}`;
 
           return (
@@ -51,16 +49,14 @@ export default class CountrySelect extends React.Component<Props, State> {
               <Control>
                 <Select onChange={this.onChange} selected={code}>
                   {data.countries.map(country => (
-                    <option key={country.code} value={country.code}>
-                      {country.name}
-                    </option>
+                    <option value={country.code}>{country.name}</option>
                   ))}
                 </Select>
               </Control>
             </Field>
           );
         }}
-      />
+      </Query>
     );
   }
 }
