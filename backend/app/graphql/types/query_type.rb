@@ -11,8 +11,6 @@ module Types
       description 'Get a list of countries'
     end
 
-    field :node, field: GraphQL::Relay::Node.field
-
     def countries
       ISO3166::Country.all.sort
     end
