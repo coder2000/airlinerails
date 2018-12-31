@@ -5,5 +5,5 @@ import Home from '../Home';
 test('Home renders without error', () => {
   const home = shallow(<Home />);
 
-  expect(home).toBeDefined();
+  expect(home).toMatchSnapshot();
 });

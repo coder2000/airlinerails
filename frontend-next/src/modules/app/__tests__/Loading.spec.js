@@ -5,5 +5,5 @@ import Loading from '../Loading';
 test('Loading component renders without error', () => {
   const loading = shallow(<Loading />);
 
-  expect(loading).toBeDefined();
+  expect(loading).toMatchSnapshot();
 });
