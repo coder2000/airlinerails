@@ -51,7 +51,7 @@
     "pouchdb": "^7.0.0",
     "pouchdb-browser": "^7.0.0",
     "react": "^16.7.0",
-    "react-apollo": "^3.0.0-alpha.2",
+    "react-apollo": "^2.3.3",
     "react-dom": "^16.7.0",
     "react-pouchdb": "^0.3.2",
     "react-relay": "^1.7.0",
