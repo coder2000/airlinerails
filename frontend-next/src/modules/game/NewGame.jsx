@@ -75,6 +75,18 @@ export default class NewGame extends React.Component<Props, State> {
                 <Input type="text" />
               </Control>
             </Field>
+            <Field>
+              <Label>Username</Label>
+              <Control>
+                <Input type="text" />
+              </Control>
+            </Field>
+            <Field>
+              <Label>E-mail</Label>
+              <Control>
+                <Input type="email" />
+              </Control>
+            </Field>
           </Column>
         </Columns>
       </Container>
