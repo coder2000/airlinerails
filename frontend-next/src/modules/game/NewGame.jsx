@@ -12,7 +12,6 @@ import {
   Input,
   Title,
 } from 'bloomer';
-import { Loading } from '../app';
 import GameContext from '../contexts';
 import CountrySelect from './CountrySelect';
 
@@ -54,19 +53,17 @@ export default class NewGame extends React.Component<Props, State> {
           </Column>
         </Columns>
         <Columns isCentered>
-          <React.Suspense fallback={<Loading />}>
-            <Column isSize="1/3">
-              <Title isSize={4}>Airline</Title>
-              <Field>
-                <Label>Name</Label>
-                <Control>
-                  <Input type="text" />
-                </Control>
-              </Field>
-              <CountrySelect onCountrySelected={this.countrySelected} />
-              Selected Country: {countryCode}
-            </Column>
-          </React.Suspense>
+          <Column isSize="1/3">
+            <Title isSize={4}>Airline</Title>
+            <Field>
+              <Label>Name</Label>
+              <Control>
+                <Input type="text" />
+              </Control>
+            </Field>
+            <CountrySelect onCountrySelected={this.countrySelected} />
+            Selected Country: {countryCode}
+          </Column>
           <Column isSize="1/3">
             <Title isSize={4}>Owner</Title>
             <Field>
